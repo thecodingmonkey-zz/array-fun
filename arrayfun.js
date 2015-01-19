@@ -9,19 +9,19 @@ module.exports = {
   },
 
   max: function (array) {
-    return array.reduce( function(p, c) {
-      return (p < c) ? c : p;  // return greater of two numbers
+    return array.reduce( function(prev, curr) {
+      return (prev < curr) ? curr : prev;  // return greater of two numbers
     } );
   },
 
   min: function (array) {
-    return array.reduce( function(p, c) {
-      return (p < c) ? p : c;  // return lesser of two numbers
+    return array.reduce( function(prev, curr) {
+      return (prev < curr) ? prev : curr;  // return lesser of two numbers
     } );
   },
 
   intersection: function () { // this function takes a variable # of parameters
-//    console.log(arguments.toString() );
+
     var args = [].slice.call(arguments);   // get arguments as array
       // http://javascript.info/tutorial/arguments
 
@@ -35,7 +35,6 @@ module.exports = {
   },
 
   difference: function() {
-//    console.log(arguments.toString() );
     var args = [].slice.call(arguments);   // get arguments as array
       // http://javascript.info/tutorial/arguments
 
@@ -49,7 +48,6 @@ module.exports = {
   },
 
   uniq: function() {
-    //    console.log(arguments.toString() );
     var args = [].slice.call(arguments);   // get arguments as array
       // http://javascript.info/tutorial/arguments
 
@@ -65,7 +63,9 @@ module.exports = {
   },
 
   contains: function(array, target) {
-    if (arguments[2] != undefined) {
+    
+    // if there is more than two parameters, it should fail
+    if (arguments[2] !== undefined) {
       return false;
     }
 
