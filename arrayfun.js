@@ -25,10 +25,18 @@ module.exports = {
     var args = [].slice.call(arguments);   // get arguments as array
       // http://javascript.info/tutorial/arguments
 
+    // intersection with multiple arrays operates similarly to an accumulator.
+    // the first array is the preliminary result, and each additional array
+    // reduces the number of elements in the array.  this makes 'reduce' in
+    // the array methods a great candidate for this.
     return args.reduce(
       function(array1, array2) {
+
+        // this line filters out values in the first array that aren't in
+        // the second array.  the 'some' function returns true if the given
+        // function evaluates to true for at least one value in the array.
         return array1.filter( function(val, idx, arr) {
-          return (array2.some(function(c,i,a) {return c === val;}));
+          return (array2.some(function(curr, idx , arr) {return curr === val;}));
         } );
       }
     );
@@ -38,8 +46,16 @@ module.exports = {
     var args = [].slice.call(arguments);   // get arguments as array
       // http://javascript.info/tutorial/arguments
 
+    // difference is similar to intersection, except in this case elements 
+    // are removed from the result array if they appear in later arrays.
     return args.reduce(
       function(array1, array2) {
+
+        // the filter criteria is the opposite of the intersection function.
+        // 'every' returns true if the given function evaluates to true for
+        // every element of the given array - in this case, we want each
+        // element in the first array that we are keeping to be not equal
+        // to any element in the second array.
         return array1.filter( function(val, idx, arr) {
           return (array2.every(function(c,i,a) {return c !== val;}));
         } );
