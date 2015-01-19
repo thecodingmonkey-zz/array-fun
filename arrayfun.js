@@ -78,6 +78,7 @@ module.exports = {
       }
     );
 
+    // the first occurance will match indexOf; future occurrances won't.
     return flatArray.filter(function(curr,idx,arr) {
       return (idx === arr.indexOf(curr));
     });
