@@ -57,7 +57,7 @@ module.exports = {
         // element in the first array that we are keeping to be not equal
         // to any element in the second array.
         return array1.filter( function(val, idx, arr) {
-          return (array2.every(function(c,i,a) {return c !== val;}));
+          return (array2.every(function(curr,idx,arr) {return curr !== val;}));
         } );
       }
     );
@@ -78,8 +78,8 @@ module.exports = {
       }
     );
 
-    return flatArray.filter(function(c,i,a) {
-      return (i === a.indexOf(c));
+    return flatArray.filter(function(curr,idx,arr) {
+      return (idx === arr.indexOf(curr));
     });
   },
 
