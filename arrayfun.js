@@ -67,6 +67,11 @@ module.exports = {
     var args = [].slice.call(arguments);   // get arguments as array
       // http://javascript.info/tutorial/arguments
 
+    // flattening array because we want to consolidate all parameters
+    // (in case more than one array is provided).  This is necessary because
+    // args to array provides at least a doubly nested array; this step
+    // also only flattens the array by one level.  (which is important
+    // if arrays are objects in the parameters)
     var flatArray = args.reduce(
       function(array1, array2) {
         return array1.concat(array2);
@@ -85,6 +90,7 @@ module.exports = {
       return false;
     }
 
+    // contains is already implemented via indexOf, use it.
     return array.indexOf(target) !== -1;
   }
 };
