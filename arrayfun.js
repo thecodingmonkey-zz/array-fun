@@ -85,13 +85,19 @@ module.exports = {
   },
 
   contains: function(array, target) {
-    
-    // if there is more than two parameters, it should fail
-    if (arguments[2] !== undefined) {
-      return false;
-    }
+    var args = [].slice.call(arguments);   // get arguments as array
 
-    // contains is already implemented via indexOf, use it.
-    return array.indexOf(target) !== -1;
+    return args.every( 
+      function(current, index, array) {
+        if (index === 0) return true; // args[0] is the array
+
+        // check that each parameter past 0 is in array[0], the search array
+        return array[0].some( function(val, idx, arr) {
+            return (val === current);
+          }
+        );
+      }
+
+    );
   }
 };
