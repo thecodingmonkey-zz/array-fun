@@ -9,7 +9,7 @@ module.exports = {
   },
 
   max: function (array) {
-   if (array == false || array.length === 0 ) {
+   if (!array || array.length === 0 ) {
      return -Infinity;
    }
 
@@ -19,7 +19,7 @@ module.exports = {
   },
 
   min: function (array) {
-    if (array == false || array.length === 0 ) {
+    if (!array || array.length === 0 ) {
       return Infinity;
     }
 
