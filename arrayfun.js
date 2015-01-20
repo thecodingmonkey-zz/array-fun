@@ -9,12 +9,20 @@ module.exports = {
   },
 
   max: function (array) {
+   if (array == false || array.length === 0 ) {
+     return -Infinity;
+   }
+
     return array.reduce( function(prev, curr) {
       return (prev < curr) ? curr : prev;  // return greater of two numbers
     } );
   },
 
   min: function (array) {
+    if (array == false || array.length === 0 ) {
+      return Infinity;
+    }
+
     return array.reduce( function(prev, curr) {
       return (prev < curr) ? prev : curr;  // return lesser of two numbers
     } );

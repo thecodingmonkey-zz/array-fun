@@ -11,4 +11,12 @@ describe("arrayfun", function() {
     expect( arrayfun.max(test_array) ).toBe(8);
   });
 
+  it("max() should return -Infinity for empty/falsey values", function() {
+    var test_array = [];
+    expect( arrayfun.max(test_array) ).toBe(-Infinity);
+
+    test_array = false;
+    expect( arrayfun.max(test_array) ).toBe(-Infinity);
+  });
+
 });

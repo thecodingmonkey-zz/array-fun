@@ -11,4 +11,15 @@ describe("arrayfun", function() {
     expect( arrayfun.min(test_array) ).toBe(2);
   });
 
+  it("should return Infinity for empty/falsey values", function() {
+    var test_array = [];
+    expect( arrayfun.min(test_array) ).toBe(Infinity);
+
+    test_array = false;
+    expect( arrayfun.min(test_array) ).toBe(Infinity);
+
+
+
+  });
+
 });
