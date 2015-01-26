@@ -15,3 +15,5 @@ In this exercise you must will solve a number of challenges for manipulating and
 3. Write the functions for the test cases in step 2.
 
 4. Profit!
+
+5. Profit MOAR!
